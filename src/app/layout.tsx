@@ -19,19 +19,17 @@ export const metadata: Metadata = {
   keywords: ["CBSE", "Class 12", "Board Exams", "Study Planner", "Dashboard"],
   authors: [{ name: "Riyan" }],
   icons: {
-    icon: "https://z-cdn.chatglm.cn/z-ai/static/logo.svg",
+    icon: "/teddy-logo.png",
   },
   openGraph: {
-    title: "Z.ai Code Scaffold",
-    description: "AI-powered development with modern React stack",
-    url: "https://chat.z.ai",
-    siteName: "Z.ai",
+    title: "Gift from Riyan to Nitu",
+    description: "CBSE Class 12 Board Exam Study Dashboard",
     type: "website",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Z.ai Code Scaffold",
-    description: "AI-powered development with modern React stack",
+    title: "Gift from Riyan to Nitu",
+    description: "CBSE Class 12 Board Exam Study Dashboard",
   },
 };
 
