@@ -98,11 +98,28 @@ const motivationalQuotes = [
   "Your future self will thank you for the effort you put in today! 🎯"
 ]
 
+// Storage key for localStorage
+const STORAGE_KEY = 'nitu_study_dashboard_completed'
+
+// Helper to load saved progress from localStorage
+const loadSavedProgress = (): Set<string> => {
+  if (typeof window === 'undefined') return new Set()
+  const saved = localStorage.getItem(STORAGE_KEY)
+  if (saved) {
+    try {
+      return new Set(JSON.parse(saved))
+    } catch (e) {
+      return new Set()
+    }
+  }
+  return new Set()
+}
+
 export default function Home() {
   const [currentTime, setCurrentTime] = useState(new Date())
   const [quoteIndex, setQuoteIndex] = useState(0)
   const [expandedSubject, setExpandedSubject] = useState<number | null>(null)
-  const [completedTopics, setCompletedTopics] = useState<Set<string>>(new Set())
+  const [completedTopics, setCompletedTopics] = useState<Set<string>>(loadSavedProgress)
   const [showWarning, setShowWarning] = useState(true)
 
   useEffect(() => {
@@ -150,6 +167,14 @@ export default function Home() {
       newCompleted.add(topicId)
     }
     setCompletedTopics(newCompleted)
+    // Save to localstorage
+    localstorage.setItem(STORAGE_KEY, JSON.stringify([...newCompleted]))
+  }
+
+  // Reset all progress
+  const resetProgress = () => {
+    setCompletedTopics(new Set())
+    localStorage.removeItem(STORAGE_KEY)
   }
 
   const nextExam = getNextExam()
@@ -499,10 +524,18 @@ export default function Home() {
 
         {/* Quick Stats */}
         <div className="bg-slate-800/50 backdrop-blur-sm rounded-3xl p-6 border border-slate-700">
-          <h2 className="text-xl font-bold text-white mb-4 flex items-center gap-2">
-            <span className="text-2xl">📊</span>
-            Your Board Exam Journey Stats
-          </h2>
+          <div classname="flex items-center justify-between mb-4">
+            <h2 className="text-xl font-bold text-white mb-4 flex items-center gap-2">
+              <span className="text-2xl">📊</span>
+              Your Board Exam Journey Stats
+            </h2>
+            <button 
+              onClick={resetProgress}
+              className="px-4 py-2 bg-red-500/20 hover:bg-red-500/30 text-red-300 rounded-lg text-sm border boreder-red-500/30 transition-colors"
+            >
+              🗑️ Reset Progress
+            </button>
+          </div>
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
             <div className="bg-slate-700/50 rounded-xl p-4 text-center">
               <p className="text-3xl font-bold text-yellow-400">{exams.length}</p>
