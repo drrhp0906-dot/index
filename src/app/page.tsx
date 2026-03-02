@@ -7,7 +7,7 @@ const exams = [
   {
     id: 1,
     name: 'Yoga',
-    date: new Date('2025-03-07T10:30:00'),
+    date: new Date('2026-03-07T10:30:00'),
     color: 'from-purple-500 to-violet-600',
     bgColor: 'bg-purple-50',
     borderColor: 'border-purple-300',
@@ -21,7 +21,7 @@ const exams = [
   {
     id: 2,
     name: 'English',
-    date: new Date('2025-03-12T10:30:00'),
+    date: new Date('2026-03-12T10:30:00'),
     color: 'from-blue-500 to-cyan-600',
     bgColor: 'bg-blue-50',
     borderColor: 'border-blue-300',
@@ -37,7 +37,7 @@ const exams = [
   {
     id: 3,
     name: 'Economics',
-    date: new Date('2025-03-18T10:30:00'),
+    date: new Date('2026-03-18T10:30:00'),
     color: 'from-green-500 to-emerald-600',
     bgColor: 'bg-green-50',
     borderColor: 'border-green-300',
@@ -51,7 +51,7 @@ const exams = [
   {
     id: 4,
     name: 'IP',
-    date: new Date('2025-03-25T10:30:00'),
+    date: new Date('2026-03-25T10:30:00'),
     color: 'from-orange-500 to-amber-600',
     bgColor: 'bg-orange-50',
     borderColor: 'border-orange-300',
@@ -67,7 +67,7 @@ const exams = [
   {
     id: 5,
     name: 'Business',
-    date: new Date('2025-03-28T10:30:00'),
+    date: new Date('2026-03-28T10:30:00'),
     color: 'from-rose-500 to-pink-600',
     bgColor: 'bg-rose-50',
     borderColor: 'border-rose-300',
@@ -525,7 +525,7 @@ export default function Home() {
 
         {/* Footer */}
         <footer className="text-center mt-8 text-slate-400">
-          <p>Made with 💜 for Nitu | CBSE Class 12 Board Exams 2025</p>
+          <p>Made with 💜 for Nitu | CBSE Class 12 Board Exams 2026</p>
           <p className="text-sm mt-2">Remember: Every hour counts. You've got this! 💪</p>
         </footer>
       </div>
